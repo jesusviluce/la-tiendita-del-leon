@@ -28,14 +28,16 @@ finalizar.addEventListener("click", function() {
         return;
     }
 
-    let mensaje = "Hola, quiero pedir:%0A";
+    let mensaje = "Hola, quiero pedir: ";
 
-    const items = carrito.querySelectorAll("p");
-    items.forEach(function(item) {
-        mensaje += item.textContent + "%0A";
-    });
+const items = carrito.querySelectorAll("p");
+items.forEach(function(item) {
+    mensaje += item.textContent + " | ";
+});
 
-    mensaje += "%0ATotal: $" + total.toFixed(2);
+mensaje += " Total: $" + total.toFixed(2);
+
+mensaje = encodeURIComponent(mensaje);
 
     const numero = "50765217752";
   let url;
