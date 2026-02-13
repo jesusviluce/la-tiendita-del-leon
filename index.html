@@ -9,13 +9,23 @@
 </head>
 <body>
 
-    <h1>La Tiendita Del León 🦁</h1>
+ <h1>La Tiendita Del León 🦁</h1>
+
 <p>
-Podrás disfrutar de duros frutales, helados artesanales, yogurt, palomitas y más.  
-<br>
+Podrás disfrutar de duros frutales, helados artesanales, yogurt, palomitas y más.
+</p>
+
+<p>
 Estamos en Crystal Plaza Mall y en los Pueblos 2000.
 </p>
-<video controls width="300">
+
+<a href="https://www.google.com/maps/place/Crystal+Plaza/@9.0443674,-79.4521839,17z/data=!3m1!4b1!4m6!3m5!1s0x8fab55f31c6ee8ff:0x3506f1e856ce8868!8m2!3d9.0443674!4d-79.4496036!16s%2Fg%2F11b6dxt1t_?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D"
+target="_blank"
+class="mapa">
+📍 Ver ubicación en Google Maps
+</a>
+
+<video controls>
     <source src="promo.mp4" type="video/mp4">
     Tu navegador no soporta videos.
 </video>
@@ -77,11 +87,13 @@ Estamos en Crystal Plaza Mall y en los Pueblos 2000.
         <button>Ordenar</button>
     </div>
 <h2>🛒 Tu pedido</h2>
+<p id="contador">0 productos en tu pedido</p>
 <div id="carrito"></div>
     <p id="mensaje-vacio">No has agregado nada todavía.</p>
 
 
 <h3 id="total">Total: $0.00</h3>
+<textarea id="nota" placeholder="¿Alguna indicación? Ej: sin maní, más dulce, para regalo…"></textarea>
 <button id="finalizar">Finalizar pedido</button>
 <button id="vaciar">Vaciar carrito</button>
 

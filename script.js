@@ -2,6 +2,9 @@ let total = 0;
 const carrito = document.getElementById("carrito");
 const mensajeVacio = document.getElementById("mensaje-vacio");
 const totalTexto = document.getElementById("total");
+const contador = document.getElementById("contador");
+const nota = document.getElementById("nota");
+let cantidad = 0;
 
 const botones = document.querySelectorAll(".helado button");
 
@@ -14,6 +17,8 @@ botones.forEach(function(boton) {
 
         total += precio;
 mensajeVacio.style.display = "none";
+cantidad++;
+contador.textContent = cantidad + " productos en tu pedido";
 
         carrito.insertAdjacentHTML("beforeend", `<p>${nombre} - $${precio.toFixed(2)}</p>`);
         totalTexto.textContent = "Total: $" + total.toFixed(2);
@@ -28,30 +33,36 @@ finalizar.addEventListener("click", function() {
         return;
     }
 
-    let mensaje = "Hola, quiero pedir: ";
+    let mensaje = "Hola, quiero pedir:%0A";
 
-const items = carrito.querySelectorAll("p");
-items.forEach(function(item) {
-    mensaje += item.textContent + " | ";
-});
+    const items = carrito.querySelectorAll("p");
+    items.forEach(function(item) {
+        mensaje += item.textContent + "%0A";
+    });
 
-mensaje += " Total: $" + total.toFixed(2);
+    mensaje += "%0ATotal: $" + total.toFixed(2);
 
-mensaje = encodeURIComponent(mensaje);
+    if (nota.value.trim() !== "") {
+        mensaje += "%0A%0A📝 Nota: " + nota.value;
+    }
 
     const numero = "50765217752";
-  let url;
+    let url;
 
-if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-    url = "whatsapp://send?phone=" + numero + "&text=" + mensaje;
-} else {
-    url = "https://web.whatsapp.com/send?phone=" + numero + "&text=" + mensaje;
-}
+    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        url = "whatsapp://send?phone=" + numero + "&text=" + mensaje;
+    } else {
+        url = "https://web.whatsapp.com/send?phone=" + numero + "&text=" + mensaje;
+    }
+
     window.open(url, "_blank");
 });
+
 vaciar.addEventListener("click", function() {
     carrito.innerHTML = "";
     total = 0;
+    cantidad = 0;
+    contador.textContent = "0 productos en tu pedido";
     totalTexto.textContent = "Total: $0.00";
     mensajeVacio.style.display = "block";
-});xx
+});
