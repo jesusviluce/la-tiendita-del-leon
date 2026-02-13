@@ -38,10 +38,10 @@ finalizar.addEventListener("click", function() {
     mensaje += "%0ATotal: $" + total.toFixed(2);
 
     const numero = "50765217752";
-   let url;
+  let url;
 
 if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-    url = "https://wa.me/" + numero + "?text=" + mensaje;
+    url = "whatsapp://send?phone=" + numero + "&text=" + mensaje;
 } else {
     url = "https://web.whatsapp.com/send?phone=" + numero + "&text=" + mensaje;
 }
